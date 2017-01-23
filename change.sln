@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "change", "change\change.csproj", "{AEE3D105-8701-4B1E-B0E2-A543C1B4DA8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE3D105-8701-4B1E-B0E2-A543C1B4DA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE3D105-8701-4B1E-B0E2-A543C1B4DA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE3D105-8701-4B1E-B0E2-A543C1B4DA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE3D105-8701-4B1E-B0E2-A543C1B4DA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
