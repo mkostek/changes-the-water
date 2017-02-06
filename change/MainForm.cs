@@ -35,6 +35,7 @@ namespace change
 			//
 			
 		}
+		public bool hulle=false;
 		public struct hal{
 			public double katı;
 			public double sıvı;
@@ -134,8 +135,9 @@ namespace change
 		}
 		public void donusum(){
 			double enerji=0;
-			if(fa[0].sıcaklık>fa[1].sıcaklık){
-				if(fa[0].sıcaklık>99 && (int)fa[0].kutle.gaz>0){
+			if(fa[0].sıcaklık>fa[1].sıcaklık&&!hulle){
+				enerji=0;
+				if(fa[0].sıcaklık==100 && fa[1].sıcaklık<100 && (int)fa[0].kutle.gaz>0){
 					fa[0].kutle.gaz--;
 					fa[0].kutle.sıvı++;
 					enerji=540;
@@ -156,9 +158,9 @@ namespace change
 					fa[1].sıcaklık+=enerji/fa[1].kutle.sıvı;
 				}
 
-			}else if(fa[0].sıcaklık<fa[1].sıcaklık){
+			}else if(fa[0].sıcaklık<fa[1].sıcaklık&&hulle){
 				enerji=0;
-				if(fa[1].sıcaklık>99 && fa[0].sıcaklık<99 && (int)fa[1].kutle.gaz>0){
+				if(fa[1].sıcaklık==100 && fa[0].sıcaklık<100 && (int)fa[1].kutle.gaz>0){
 					fa[1].kutle.gaz--;
 					fa[1].kutle.sıvı++;
 					enerji=540;
@@ -180,7 +182,7 @@ namespace change
 				}
 
 			}
-				chartBirinciDerece.Series[0].Points.AddXY(x,fa[1].sıcaklık);
+			chartBirinciDerece.Series[0].Points.AddXY(x,fa[1].sıcaklık);
 			chartBirinciDerece.Series[1].Points.AddXY(x,fa[0].sıcaklık);x++;
 		}
 		void Timer1Tick(object sender, EventArgs e)
@@ -189,8 +191,8 @@ namespace change
 			if(carpma()){
 				donusum();
 			}
-			button1.Text=(int)fa[0].sıcaklık+" C"+"\nkatı"+fa[0].kutle.katı+" gr\nsıvı"+fa[0].kutle.sıvı+" gr\ngaz"+fa[0].kutle.gaz+" gr";
-			button2.Text=(int)fa[1].sıcaklık+" C"+"\nkatı"+fa[1].kutle.katı+" gr\nsıvı"+fa[1].kutle.sıvı+" gr\ngaz"+fa[1].kutle.gaz+" gr";
+			button1.Text=(int)fa[0].sıcaklık+" C"+"\nkatı"+(int)fa[0].kutle.katı+" gr\nsıvı"+(int)fa[0].kutle.sıvı+" gr\ngaz"+(int)fa[0].kutle.gaz+" gr";
+			button2.Text=(int)fa[1].sıcaklık+" C"+"\nkatı"+(int)fa[1].kutle.katı+" gr\nsıvı"+(int)fa[1].kutle.sıvı+" gr\ngaz"+(int)fa[1].kutle.gaz+" gr";
 			
 			/*	x=(int)(fa[0].sıcaklık*2.55);
 			y=(int)(fa[1].sıcaklık*2.55);
@@ -199,14 +201,11 @@ namespace change
 		}
 
 		
-		void TextBox1MouseLeave(object sender, EventArgs e)
-		{
 
-		}
 		
-		void TextBox1Leave(object sender, EventArgs e)
+		void Button3Click(object sender, EventArgs e)
 		{
-						int a;
+				int a;
 			int c=0;
 			a=Convert.ToInt32(textBox1.Text);
 			switch(comboBox2.SelectedIndex)
@@ -229,7 +228,22 @@ namespace change
 						else fa[c].sıcaklık=a;break;
 				}
 			}
+			double ci=Math.Sqrt(Convert.ToInt32(textBox2.Text))*10;
+			if(!Convert.ToBoolean(c)){
+				button1.Width=(int)ci;
+				button1.Height=(int)ci;
+			}else{
+				button2.Width=(int)ci;
+				button2.Height=(int)ci;
+			}
+			if(fa[0].sıcaklık>fa[1].sıcaklık){
+				hulle=false;
+			}else{
+				hulle=true;
+			}
 			hesapla();
+			chartBirinciDerece.Series[0].Points.Clear();
+			chartBirinciDerece.Series[1].Points.Clear();
 		}
 	}
 }
