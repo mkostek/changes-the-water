@@ -1,0 +1,33 @@
+Suyun ısı-sıcaklık grafiği aşağıdaki gibidir. 
+Şekilde görüldüğü gibi su 0 derecede donar ve 100 derecede buharlaşmaktadır.Bu değerler su için bir enerji eşiğidir.Çünkü hal değişim aşamalarında maddelerin fiziksel özellikleri homojen olmadığından verilen enerjinin hepsi homojen bir fiziksel hal oluşuncaya enerji kayıpları söz konusu olmaksızın sıcaklık değişmeyecektir.
+1. C_{buz}=0.5 Joule/gr
+2. C_{sıvı}=1 joule/gr
+3. C_{erime}=80 joule/gr
+4. C_{buharlaşma}=540 joule/gr
+
+Yukarıdaki verilenler sırasıyla;buzun bir gramının sıcaklığını bir derece artırmak için gerekli olan enerji,sıvı konumda bulunun suyun bir gramının sıcaklığını bir derece artırmak için gerekli olan,
+0 derecedeki buzun bir gramının eritmek için gerekli olan enerji miktarı ve 100 derecedeki suyun buharlaşması için gerekli olan enerji miktarlarıdır.
+Şimdi uygulamamızda şöyle
+1.Isı sıcaklık değişimini gösteren grafiğimizi
+1. Buton seçici(kütle seçici)
+2. fiziksel hal seçici
+3. kütleye ait miktarı gir
+4. kütleye ait olan sıcaklığı gir
+5. iki kütleden bir tanesi(beyaz)
+6. iki kütleden bir tanesi(mavi)
+    12.Butona basıldığında ilgili kütleye ait nicelik ve nitelikler kaydedilir.
+Nasıl çalışır
+
+Renk seçici
+
+Birinci kombobaks seçildiğinde iki adet renk niteliği belirir.Bu renklerden hangisi seçilirse girilen nicelikler o su kütlesine ait olacaktır. 
+Fiziksel hal
+İkinci kombobaks seçildiğinde bu kütleye ait fiziksel hal seçimi yapılır.
+Kütle girilmesi
+Buradaki kutucuk yardımıyla kütle girişi yapılır.Kutuya girilen nicelik değere göre butonun genişlik ve yüksekliği güncellenir.
+Sıcaklık girilmesi
+Son kutucuk ise sıcaklık girişine yardım eder.Şöyleki seçilen fiziksel hale göre sıcaklık değeri alınır.Yalnızca program az halindeki su buharı 100 dereceden farklı değer girilemez.
+Ve son olarak isle butonu tıklandığında girilen nitelik ve nicelik değerler eğer hatasız ise ilgili kütleye yazılır.
+
+Ve Etkileşim
+Artık son olarak kütlelere ait nitelik ve nicelikler girildikten sonra sıra etkileşim aşamasına gelir.Programlar ekranda görmüş olduğunuz butonlar sürüklenebilir yapıya sahiptir,sol klik basılı tutularak sürükleme işlemi yapılır.Programın arka tarafında  her bir zaman periyodunda kütlelerin üst üste olup olmadığını kontrol eden bir bit tarafından kontrol eder.Eğer bu bit true değeri döndürürse enerji alışverişi gerçekleşir,ve anlık olarak kütlelerdeki sıcaklık değişimleri grafikte, kütlelerin üzerinde  gösterilir.
