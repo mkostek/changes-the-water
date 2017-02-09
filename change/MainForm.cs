@@ -78,17 +78,16 @@ namespace change
 			suruklenmedurumu = false; //Sol tuştan elimizi çektik artık yani sürükle işlemi bitti.
 			((Button)sender).Cursor = Cursors.Default; //İmlecimiz(Cursor) default değerini alıyor.
 		}
-		public bool carpma()
+		public bool kontrol(Button b1,Button b2)
 		{
-			
-			bool[] b=new bool[3];
-			b[2]=false;
-			b[0]=button1.Location.X-hassas<button2.Location.X && button1.Location.X+hassas>button2.Location.X;
-			b[1]=button1.Location.Y-hassas<button2.Location.Y && button1.Location.Y+hassas>button2.Location.Y;
-			if(b[0]&&b[1]){
-				b[2]=b[0]&&b[1];
-			}
-			return b[2];
+			int a,b,c,d;
+			a=(b1.Right-b2.Left)*(b2.Bottom-b1.Top);
+			b=(b1.Bottom-b2.Top)*(b1.Right-b2.Left);
+			c=(b1.Bottom-b2.Top)*(b2.Right-b1.Left);
+			d=(b2.Bottom-b1.Top)*(b2.Right-b1.Left);
+			if(a>0&&b>0&&c>0&&d>0)
+				return true;
+			else return false;
 		}
 		public void hesapla(){
 			if(fa[0].sıcaklık>99){
@@ -188,7 +187,7 @@ namespace change
 		void Timer1Tick(object sender, EventArgs e)
 		{
 			
-			if(carpma()){
+			if(kontrol(button1,button2)){
 				donusum();
 			}
 			button1.Text=(int)fa[0].sıcaklık+" C"+"\nkatı"+(int)fa[0].kutle.katı+" gr\nsıvı"+(int)fa[0].kutle.sıvı+" gr\ngaz"+(int)fa[0].kutle.gaz+" gr";
